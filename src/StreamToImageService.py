@@ -15,4 +15,4 @@ def stream_to_image(id):
             return Response("", 500)
 
 
-app.run("0.0.0.0", host=8080, debug=True)
+app.run("0.0.0.0", port=8080, debug=True)
