@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/camera/<id>')
 def stream_to_image(id):
     # test23
-    cameras = requests.get('http://camera-registry/get/all').json()
+    cameras = requests.get('http://camera-registry-service:30081/get/all').json()
     for camera in cameras:
         if camera[0] == id:
             return requests.get(camera[1])
