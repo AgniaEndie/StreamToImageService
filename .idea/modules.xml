@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../CameraHost/CameraHost.iml" filepath="$PROJECT_DIR$/../CameraHost/CameraHost.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ImageResizeService/ImageResizeService.iml" filepath="$PROJECT_DIR$/../ImageResizeService/ImageResizeService.iml" />
       <module fileurl="file://$PROJECT_DIR$/StreamToImageService.iml" filepath="$PROJECT_DIR$/StreamToImageService.iml" />
     </modules>
   </component>

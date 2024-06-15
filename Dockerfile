@@ -1,4 +1,8 @@
-FROM ubuntu:latest
+FROM python:3.12-slim
 LABEL authors="agniaendie"
 
-ENTRYPOINT ["top", "-b"]
+COPY /src /tmp
+WORKDIR /src
+RUN pip install -r requirements.txt
+
+ENTRYPOINT ["python", "StreamToImageService.py"]
