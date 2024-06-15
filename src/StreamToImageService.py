@@ -10,7 +10,8 @@ def stream_to_image(id):
     cameras = requests.get('http://camera-registry-service:80/get/all').json()
     for camera in cameras:
         if camera[0] == id:
-            return requests.get(camera[1],stream=True)
+            return requests.get(camera[1], stream=True,
+                                headers={'Content-type': 'multipart/x-mixed-replace; boundary=frame'})
         else:
             return Response("", 500)
 
