@@ -1,3 +1,4 @@
+import cv2
 from flask import *
 import requests
 
@@ -10,12 +11,10 @@ def stream_to_image(id):
     cameras = requests.get('http://camera-registry-service:80/get/all').json()
     for camera in cameras:
         if camera[0] == id:
-            headers = {'Content-Type': 'multipart/x-mixed-replace; boundary=frame'}
-            response = requests.get(camera[1], headers=headers, stream=True)
+            localCamera = cv2.VideoCapture(camera[0])
+            success, frame = localCamera.read()
 
-            for part in response.iter_content(chunk_size=1024):
-                return part
-
+            return Response(frame, mimetype='multipart/x-mixed-replace; boundary=frame')
         else:
             return Response("", 500)
 
